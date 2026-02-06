@@ -1,0 +1,2 @@
+# LIBFT
+şİMDİLİK KALISN

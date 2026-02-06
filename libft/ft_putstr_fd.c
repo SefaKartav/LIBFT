@@ -1,0 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/03 13:39:48 by sekartav          #+#    #+#             */
+/*   Updated: 2026/02/04 08:01:28 by sekartav         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+}
+
+/*int main()
+{
+	ft_putstr_fd("sefa", 1);
+	ft_putstr_fd("sefa", 2);
+	ft_putstr_fd("sefa", 0);
+
+}*/

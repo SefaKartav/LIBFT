@@ -6,7 +6,7 @@
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 13:39:50 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/04 08:01:24 by sekartav         ###   ########.fr       */
+/*   Updated: 2026/02/06 07:17:16 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ void	ft_putnbr_fd(int n, int fd)
 			calculate_number(n, fd);
 	}
 }
-
-#include "libft.h"
 
 /*int main(void)
 {

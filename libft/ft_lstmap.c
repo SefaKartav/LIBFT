@@ -6,31 +6,32 @@
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:31:29 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/06 00:17:29 by sekartav         ###   ########.fr       */
+/*   Updated: 2026/02/06 07:15:12 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-    t_list *nlst;
-    t_list *nnode;
-    if (lst == NULL || f == NULL || del == NULL)
-        return (NULL);
-    nlst = NULL;
-    while (lst)
-    {
-        nnode = ft_lstnew(f(lst->content));
-        if (!nnode)
-        {
-            ft_lstclear(&nlst, del);
-            return (NULL);
-        }
-        ft_lstadd_back(&nlst, nnode);
-        lst = lst->next;
-    }
-    return (nlst);
+	t_list	*nlst;
+	t_list	*nnode;
+
+	if (lst == NULL || f == NULL || del == NULL)
+		return (NULL);
+	nlst = NULL;
+	while (lst)
+	{
+		nnode = ft_lstnew(f(lst->content));
+		if (!nnode)
+		{
+			ft_lstclear(&nlst, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&nlst, nnode);
+		lst = lst->next;
+	}
+	return (nlst);
 }
 
 /*void *f(void *c)

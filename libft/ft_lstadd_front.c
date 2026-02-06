@@ -6,16 +6,16 @@
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 08:39:48 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/04 08:59:24 by sekartav         ###   ########.fr       */
+/*   Updated: 2026/02/06 07:10:52 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-    new->next = *lst;
-    *lst = new;
+	new->next = *lst;
+	*lst = new;
 }
 /*int	main(void)
 {

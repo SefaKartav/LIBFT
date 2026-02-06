@@ -6,7 +6,7 @@
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 18:23:40 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/04 08:02:02 by sekartav         ###   ########.fr       */
+/*   Updated: 2026/02/06 07:22:49 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
-
 	while (s[i] != '\0')
 		i++;
 	return (i);

@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 13:39:48 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/04 08:01:28 by sekartav         ###   ########.fr       */
+/*   Created: 2026/02/05 16:31:29 by sekartav          #+#    #+#             */
+/*   Updated: 2026/02/07 21:27:41 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	i;
+	t_list	*nlst;
+	t_list	*nnode;
+	void	*content;
 
-	i = 0;
-	while (s[i])
+	if (lst == NULL || f == NULL || del == NULL)
+		return (NULL);
+	nlst = NULL;
+	while (lst)
 	{
-		write(fd, &s[i], 1);
-		i++;
+		content = f(lst->content);
+		nnode = ft_lstnew(content);
+		if (!nnode)
+		{
+			del(content);
+			ft_lstclear(&nlst, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&nlst, nnode);
+		lst = lst->next;
 	}
+	return (nlst);
 }
-
-/*int main()
-{
-	ft_putstr_fd("sefa", 1);
-	ft_putstr_fd("sefa", 2);
-	ft_putstr_fd("sefa", 0);
-
-}*/

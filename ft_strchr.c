@@ -1,42 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 13:41:15 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/04 08:02:10 by sekartav         ###   ########.fr       */
+/*   Created: 2026/01/10 12:52:54 by sekartav          #+#    #+#             */
+/*   Updated: 2026/02/07 21:22:14 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
-	size_t	k;
+	int	i;
 
-	if (!*little)
-		return ((char *)big);
 	i = 0;
-	while (big[i] != '\0' && i < len)
+	while (s[i] != '\0')
 	{
-		k = 0;
-		while (big[i + k] == little[k] && (i + k) < len)
+		if (s[i] == (char)c)
 		{
-			if (little[k + 1] == '\0')
-				return ((char *)&big[i]);
-			k++;
+			return ((char *)(s + i));
 		}
 		i++;
 	}
-	return (0);
+	if ((char)c == '\0')
+		return ((char *)(s + i));
+	return (NULL);
 }
-
-/*int main()
-{
-	char a[] = "sefakartav";
-	char b[] = "kartav";
-	printf("%s ", ft_strnstr(a, b, 10));
-}*/

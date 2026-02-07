@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/04 08:39:48 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/06 07:10:52 by sekartav         ###   ########.fr       */
+/*   Created: 2026/02/03 13:41:11 by sekartav          #+#    #+#             */
+/*   Updated: 2026/02/07 21:14:47 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	new->next = *lst;
-	*lst = new;
-}
-/*int	main(void)
-{
-	t_list *bas = ft_lstnew("A");
-	t_list *yeni = ft_lstnew("B");
-	t_list *son = ft_lstnew("C");
+	size_t			i;
+	unsigned char	*ss1;
+	unsigned char	*ss2;
 
-    //bas->next = yeni;
-    //yeni->next = son;
-	ft_lstadd_front(&bas, yeni);
-    ft_lstadd_front(&bas, son);
-
-	t_list *temp = bas;
-	while (temp != NULL)
+	i = 0;
+	ss1 = (unsigned char *)s1;
+	ss2 = (unsigned char *)s2;
+	while (i < n)
 	{
-		printf("%s ", (char *)temp->content);
-		temp = temp->next;
+		if (ss1[i] != ss2[i])
+			return (ss1[i] - ss2[i]);
+		if (ss1[i] == '\0')
+			return (0);
+		i++;
 	}
-    return (0);
-}*/
+	return (0);
+}

@@ -1,41 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 13:40:06 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/04 08:00:53 by sekartav         ###   ########.fr       */
+/*   Created: 2026/02/03 13:38:59 by sekartav          #+#    #+#             */
+/*   Updated: 2026/02/07 13:05:18 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+static int	numlen(long n)
 {
-	size_t			i;
-	unsigned char	*s;
-	unsigned char	*k;
+	int	i;
 
-	s = (unsigned char *)s1;
-	k = (unsigned char *)s2;
 	i = 0;
 	if (n == 0)
-		return (0);
-	while (i < n)
+		return (1);
+	if (n < 0)
 	{
-		if (s[i] != k[i])
-			return (s[i] - k[i]);
 		i++;
 	}
-	return (0);
+	while (n != 0)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
 }
 
-/*int main()
+char	*ft_itoa(int n)
 {
-	char a[] = "sefa";
-	char b[] = "seza";
+	char	*str;
+	long	ln;
+	size_t	i;
 
-	printf("%d ", ft_memcmp(a, b, 4));
-}*/
+	ln = n;
+	i = numlen(ln);
+	str = malloc((i + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	str[i] = '\0';
+	if (ln == 0)
+		str[0] = '0';
+	if (ln < 0)
+	{
+		str[0] = '-';
+		ln = -ln;
+	}
+	while (ln > 0)
+	{
+		str[--i] = (ln % 10) + '0';
+		ln /= 10;
+	}
+	return (str);
+}

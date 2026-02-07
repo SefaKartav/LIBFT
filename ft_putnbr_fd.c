@@ -1,43 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 13:40:49 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/04 08:01:42 by sekartav         ###   ########.fr       */
+/*   Created: 2026/02/03 13:39:50 by sekartav          #+#    #+#             */
+/*   Updated: 2026/02/07 13:00:05 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+static void	calculate_number(int n, int fd)
 {
-	char	*s1;
-	size_t	i;
-	size_t	len;
+	char	c;
 
-	if (!s)
-		return (NULL);
-	len = ft_strlen(s);
-	i = 0;
-	s1 = (char *)malloc(sizeof(*s) * (len + 1));
-	if (!s1)
-		return (NULL);
-	while (s[i])
-	{
-		s1[i] = s[i];
-		i++;
-	}
-	s1[i] = 0;
-	return (s1);
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	c = (n % 10) + '0';
+	write(fd, &c, 1);
 }
 
-/*int main()
+void	ft_putnbr_fd(int n, int fd)
 {
-   const char *a;
-   char deneme[] = "harika";
-   a = ft_strdup(deneme);
-   printf("%d ", *a);
-}*/
+	char	c;
+
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else
+	{
+		if (n < 0)
+		{
+			write(fd, "-", 1);
+			n = -n;
+			ft_putnbr_fd(n, fd);
+		}
+		else if (n < 10)
+		{
+			c = n + '0';
+			write(fd, &c, 1);
+		}
+		else
+			calculate_number(n, fd);
+	}
+}

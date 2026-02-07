@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 13:41:11 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/04 08:02:06 by sekartav         ###   ########.fr       */
+/*   Created: 2026/02/03 13:40:06 by sekartav          #+#    #+#             */
+/*   Updated: 2026/02/07 13:06:59 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t			i;
-	unsigned char	*ss1;
-	unsigned char	*ss2;
+	unsigned char	*s;
+	unsigned char	*k;
 
+	s = (unsigned char *)s1;
+	k = (unsigned char *)s2;
 	i = 0;
-	ss1 = (unsigned char *)s1;
-	ss2 = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
 	while (i < n)
 	{
-		if (ss1[i] != ss2[i])
-			return (ss1[i] - ss2[i]);
+		if (s[i] != k[i])
+			return (s[i] - k[i]);
 		i++;
 	}
 	return (0);
 }
-
-/*int main()
-{
-	size_t i = 9;
-	char st1[50] = "safa";
-	char st2[50] = "szfa";
-	size_t n = ft_strncmp(st1, st2, i);
-
-	printf("%ld ", n);
-}*/

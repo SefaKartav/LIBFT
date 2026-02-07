@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 13:40:24 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/04 08:01:16 by sekartav         ###   ########.fr       */
+/*   Created: 2026/02/03 13:40:15 by sekartav          #+#    #+#             */
+/*   Updated: 2026/02/07 13:07:15 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	write(fd, &c, 1);
+	char	*ds;
+	char	*sr;
+
+	if (!dest && !src)
+		return (0);
+	ds = (char *)dest;
+	sr = (char *)src;
+	if (sr < ds)
+	{
+		while (n--)
+			ds[n] = sr[n];
+	}
+	else
+		ft_memcpy(ds, sr, n);
+	return (dest);
 }
-
-/*int main()
-{
-	ft_putchar_fd('C', 1);
-	ft_putchar_fd(' ', 1);
-	ft_putchar_fd('B', 2);
-	ft_putchar_fd('\n', 1);
-
-}*/

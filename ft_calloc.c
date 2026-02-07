@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/04 07:46:04 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/04 08:00:44 by sekartav         ###   ########.fr       */
+/*   Created: 2026/01/10 12:21:28 by sekartav          #+#    #+#             */
+/*   Updated: 2026/02/07 13:12:14 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int	i;
+	void	*k;
 
-	i = 0;
-	while (lst != NULL)
-	{
-		i++;
-		lst = lst->next;
-	}
-	return (i);
+	k = (void *)malloc(nmemb * size);
+	if (!k)
+		return (NULL);
+	ft_memset(k, 0, nmemb * size);
+	return (k);
 }
-
-/*int main()
-{
-	t_list *deneme1 = ft_lstnew("A");
-	t_list *deneme2 = ft_lstnew("B");
-	t_list *deneme3 = ft_lstnew("C");
-
-	deneme1->next = deneme2;
-	deneme2->next = deneme3;
-	deneme3->next = NULL;
-
-	printf("%d ", ft_lstsize(deneme1));
-
-
-}*/

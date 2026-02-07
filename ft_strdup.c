@@ -1,0 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/03 13:40:49 by sekartav          #+#    #+#             */
+/*   Updated: 2026/02/07 21:18:38 by sekartav         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_strdup(const char *s)
+{
+	char	*s1;
+	size_t	i;
+	size_t	len;
+
+	len = ft_strlen(s);
+	i = 0;
+	s1 = (char *)malloc(sizeof(*s) * (len + 1));
+	if (!s1)
+		return (NULL);
+	while (s[i])
+	{
+		s1[i] = s[i];
+		i++;
+	}
+	s1[i] = 0;
+	return (s1);
+}

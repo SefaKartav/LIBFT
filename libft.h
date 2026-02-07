@@ -6,15 +6,13 @@
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 12:28:27 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/07 12:37:58 by sekartav         ###   ########.fr       */
+/*   Updated: 2026/02/07 20:35:47 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stddef.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 

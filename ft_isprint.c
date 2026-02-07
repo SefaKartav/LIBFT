@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/10 12:52:54 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/04 08:01:32 by sekartav         ###   ########.fr       */
+/*   Created: 2026/01/10 10:38:01 by sekartav          #+#    #+#             */
+/*   Updated: 2026/02/07 20:21:17 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_isprint(int a)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (NULL);
-	while (s[i] != '\0')
-	{
-		if (s[i] == (char)c)
-		{
-			return ((char *)&s[i]);
-		}
-		i++;
-	}
-	return (NULL);
+	if (a >= 32 && a <= 126)
+		return (1);
+	return (0);
 }
-
-/*int main()
-{
-	char a[] = "sefa\0ddd";
-	printf("%s ",ft_strchr(a, 'd'));
-}*/

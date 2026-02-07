@@ -1,47 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 13:40:58 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/04 08:01:53 by sekartav         ###   ########.fr       */
+/*   Created: 2026/02/03 13:41:03 by sekartav          #+#    #+#             */
+/*   Updated: 2026/02/07 13:10:37 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t	dstl;
-	size_t	srcl;
+	size_t	len;
 	size_t	i;
-	size_t	j;
 
-	dstl = ft_strlen(dst);
-	srcl = ft_strlen(src);
+	len = ft_strlen(src);
 	i = 0;
-	j = dstl;
-	if (dstl < size)
+	if (size > 0)
 	{
-		while (src[i] != '\0' && (dstl + i + 1) < size)
+		while (i < size - 1 && i < len)
 		{
-			dst[j] = src[i];
+			dst[i] = src[i];
 			i++;
-			j++;
 		}
-		dst[j] = '\0';
+		dst[i] = '\0';
 	}
-	else
-		dstl = size;
-	return (dstl + srcl);
+	return (len);
 }
-
-/*int main()
-{
-	char a[25] = "sefa";
-	const char *b = "kartav";
-	size_t n = ft_strlcat(a, b, 2);
-	printf("%zu ", n);
-}*/

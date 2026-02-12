@@ -6,11 +6,9 @@
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 10:38:01 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/07 20:21:17 by sekartav         ###   ########.fr       */
+/*   Updated: 2026/02/09 21:31:09 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isprint(int a)
 {

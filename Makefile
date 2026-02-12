@@ -5,10 +5,11 @@
 #                                                      +:+ +:+         +:+     #
 #   By: sekartav <sekartav@student.42istanbul.com.tr>+#+  +:+       +#+        #
 #                                                  +#+#+#+#+#+   +#+           #
-#   Created: 2026/02/06 01:02:15 by ademirel            #+#    #+#             #
-#   Updated: 2026/02/07 20:20:26 by sekartav           ###   ########.fr       #
+#   Created: 2026/02/09 21:29:37 by sekartav            #+#    #+#             #
+#   Updated: 2026/02/09 21:41:55 by sekartav           ###   ########.fr       #
 #                                                                              #
 # **************************************************************************** #
+
 
 NAME = libft.a
 CC = cc
@@ -39,6 +40,5 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-bonus : all
 
 .PHONY: all clean fclean re

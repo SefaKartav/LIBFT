@@ -6,11 +6,9 @@
 /*   By: sekartav <sekartav@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 10:51:49 by sekartav          #+#    #+#             */
-/*   Updated: 2026/02/06 07:05:15 by sekartav         ###   ########.fr       */
+/*   Updated: 2026/02/09 21:31:20 by sekartav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isascii(int a)
 {
